@@ -9,6 +9,7 @@
 
 	<!-- =========== Enable Auto Wiring =========== -->
 	<context:annotation-config />
+	<context:component-scan base-package="com.nomy"/>
 
 	<!-- =========== Configurer that replaces ${...} placeholders w/ property file values ================ -->
 	<bean id="propertyConfigurer"
@@ -37,5 +38,16 @@
 	<bean id="namedParameterJdbcTemplate" class="org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate">
 		<constructor-arg ref="dataSource" /> 
 	</bean>
+	
+	<!-- 
+	<bean id="dao" abstract="true">
+	<property name="namedParameterJdbcTemplate" ref="namedParameterJdbcTemplate"/>
+	<property name="jdbcTemplate" ref="jdbcTemplate"/>
+	 </bean>
+	
+	<bean id="partyDao" class="com.nomy.persistence.dao.PartyDaoImpl" parent="dao">
+	</bean>
+	 -->
+	
 
 </beans>
